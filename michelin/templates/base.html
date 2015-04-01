@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>Michelin SAM</title>
+		<link rel="stylesheet" href="{% static "assets/jquery2/jquery.mobile-1.4.0.min.css" %}" />
+		<script src="{% static "assets/jquery/jquery-1.9.1.min.js" %}"></script>
+		<script src="{% static "assets/jquery2/jquery.mobile-1.4.0.min.js" %}"></script>
+		<script src="{% static "assets/Chart/Chart.min.js" %}"></script>
+	</head>
+	<body>
+		<div data-role="page" id="page1"  data-theme="a" data-content-theme="a">
+			<div data-role="panel" id="mypanel">
+				{% block leftTop %}
+					{% if user.is_authenticated %}
+					<a href="/deconnexion/" data-role="button">Deconnect</a>
+					{% else %}
+					<a href="/connexion/" data-role="button">Connect</a>
+					{% endif %}
+				{% endblock %}
+				{% block left %}
+				<div data-role="collapsible-set">
+					<div>
+					<h3>SAM Risk</h3>
+						<ul data-role="listview">
+							<li><a href="/sam/admin/" ajax="false">Admin and Import</a></li>
+							<li><a href="/sam/risk/analyseForbidden/" ajax="false">Analysis</a></li>
+							<li><a href="/sam/risk/risk/List/" ajax="false">Risk management</a></li>
+							<li><a href="/sam/indicators/" ajax="false">Indicators</a></li>
+						</ul>
+					</div>
+<!-- 					<div data-role="collapsible">
+					<h3>Software Catalog</h3>
+						<ul data-role="listview">
+							<li>Catalog</li>
+							<li>Request management</li>
+							<li>CVC</li>
+						</ul>
+					</div>
+					<div data-role="collapsible">
+					<h3>Hardware Management</h3>
+						<ul data-role="listview">
+							<li>Ressource unit inventory</li>
+							<li>Triangle analysis</li>
+						</ul>
+					</div> -->
+				</div>
+				{% endblock %}
+			</div>
+			<div data-role="header" data-position="fixed">
+				<a href="#mypanel" data-role="button" data-icon="bars" data-iconpos="notext"></a>
+				<h1>
+				{% block title %}
+				{% endblock %}
+				</h1>
+				{% block menuTop %}
+				{% endblock %}
+			</div>
+			<div data-role="content">
+				{% block content %}
+				{% endblock %}	
+			</div>
+			<div data-role="footer" class="ui-bar" data-position="fixed">
+				{% block footer %}
+				{% endblock %}
+			</div>
+
+		</div>
+	</body>
+</html>

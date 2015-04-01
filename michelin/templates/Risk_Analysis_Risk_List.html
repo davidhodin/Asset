@@ -1,0 +1,35 @@
+{% extends "Risk_Analysis_Risk.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+  <div data-role="collapsible" data-collapsed="true">
+    <h3>Select the zone to display</h3>
+    <form action="#" method="post" data-ajax="false">{% csrf_token %}
+    	<p><label for="id_zone">Zone:</label> <select id="id_zone" name="zone">
+    	{% for zone in zones %}
+    		<option value="{{ zone.zone_Name }}">{{ zone.zone_Name }}</option>
+    	{% endfor %}
+    	</select></p>
+    	<input type="submit" value="Display" />
+    </form>
+  </div>
+</div>
+<h3 class="ui-bar ui-bar-a ui-corner-all">List of Risks Items</h3>
+<table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+         <thead>
+           <tr class="ui-bar-d">
+             <th>Master Software</th>
+             <th data-priority="1">Zone Name</th>
+             <th>Actual risk Level</th>
+           </tr>
+         </thead>
+         <tbody>
+      		{% for item in liste %}
+           <tr>
+             <th><a href="/sam/risk/risk/{{ item.id }}/">{{ item.master_Software }}</a></th>
+             <td>{{ item.zone }}</td>
+             <td>{{ item.actual_Risk }}</td>
+           </tr>
+          {% endfor %}
+         </tbody>
+       </table>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+[ Software Asset Management ]
+{% endblock %}
+{% block content %}
+<h1>Connection required... Please fill in the form</h1>
+
+{% if error %}
+<p><strong>Error on User or Password</strong></p>
+{% endif %}
+
+{% if user.is_authenticated %}
+Welcome {{ user.username }} !
+<br/>
+<a href="/">Click here to start</a>
+{% else %}
+<form method="post" action="/connexion/">
+ 	   {% csrf_token %}
+ 	   {{ form.as_p }}
+    <input type="submit"  value="Connection"/>
+</form>
+{% endif %}
+{% endblock %}
+{% block footer %}
+<h3>
+[ Michelin ] --- [ Welcome to the Software Asset Management tools ] --- [ DGSI/IN ]
+</h3>
+{% endblock %}

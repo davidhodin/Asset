@@ -1,0 +1,8 @@
+{% extends "Risk_Import_PC.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">{{ resultat }}</h3>
+<form action="#" method="post" enctype="multipart/form-data" data-ajax="false">{% csrf_token %}
+	{{ form.as_p }}
+	<input data-icon="check" data-iconpos="top" value="Import the file" type="submit">					
+</form>
+{% endblock %}

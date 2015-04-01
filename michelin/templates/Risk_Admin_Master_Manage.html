@@ -1,0 +1,21 @@
+{% extends "Risk_Admin_Master.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Imported Software linked to this Master Software...</h3>
+		<ul data-role="listview">
+			{% for product in associes %}
+			<li><a href="/sam/admin/masterSW/del/{{ masterSW }}/{{ product.id }}/">{{ product }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>						
+	<div data-role="collapsible">
+		<h3>Imported Software list (to link)...</h3>
+		<ul data-role="listview" data-filter="true">
+			{% for product in nonAssocies %}
+			<li><a href="/sam/admin/masterSW/add/{{ masterSW }}/{{ product.id }}/">{{ product }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock %}

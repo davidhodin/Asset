@@ -1,0 +1,20 @@
+{% extends "Risk_Admin_Localisation.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible">
+		<h3>New Zone...</h3>
+		<form action="#" method="post" data-ajax="false">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Add zone" />
+		</form>
+	</div>						
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Zone list...</h3>
+		<ul data-role="listview">
+			{% for zone in zones %}
+			<li>{% if zone.zone_Name == 'GROUP' %} {{ zone.zone_Name }} {% else %}<a href="/sam/admin/zone/{{ zone.id }}/">{{ zone.zone_Name }} <span class="ui-li-count">{{ zone.zone_Nbre_Pays }}</span>{% endif %}</a></li>
+			{% endfor %}
+		</ul>					
+	</div>
+</div>
+{% endblock %}

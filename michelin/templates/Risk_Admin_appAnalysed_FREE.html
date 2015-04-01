@@ -1,0 +1,17 @@
+{% extends "Risk_Admin_Softwares.html" %}
+{% block content %}
+<div data-role="navbar">
+    <ul>
+    <li><a href="/sam/admin/appAnalysedFREE/" data-role="button" ajax='false'>Free Softwares</a></li>
+    <li><a href="/sam/admin/appAnalysedFORBIDDEN/" data-role="button" ajax='false'>Forbidden Softwares</a></li>
+    <li><a href="/sam/admin/appAnalysedPATCH/" data-role="button" ajax='false'>Paches</a></li>
+    <li><a href="/sam/admin/appAnalysedLICENSED/" data-role="button" ajax='false'>Licensed Softwares</a></li>
+    </ul>
+</div>
+<h3 class="ui-bar ui-bar-a ui-corner-all">Free Software list...</h3>
+<ul data-role="listview" data-filter="true" data-autodividers="true">
+	{% for item in liste %}
+	<li><a href="/sam/admin/appToStudy/{{ item.id }}/">{{ item.product_Imported }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

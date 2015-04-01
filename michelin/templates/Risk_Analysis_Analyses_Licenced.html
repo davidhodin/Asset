@@ -1,0 +1,47 @@
+{% extends "Risk_Analysis_Analyses.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+  <div data-role="collapsible" data-collapsed="true">
+    <h3>Select the list to display</h3>
+    <form action="#" method="post" data-ajax="false">{% csrf_token %}
+    	{{ form.as_p }}
+    	<p><label for="id_zone">Zone:</label> <select id="id_zone" name="zone">
+    	{% for zone in zones %}
+    		<option value="{{ zone.zone_Name }}">{{ zone.zone_Name }}</option>
+    	{% endfor %}
+    	</select></p>
+      <div  data-role="controlgroup" data-type="horizontal">
+        <input type="submit" name="Display" value="Display" />
+        <input type="submit" name="Extract" value="Extract" />
+      </div>
+    </form>
+  </div>
+</div>
+<h3 class="ui-bar ui-bar-a ui-corner-all">List of Softwares that needs Licenses</h3>
+<form>
+    <input id="filterTable-input" data-type="search">
+</form>
+<table data-role="table" id="movie-table" data-filter="true" data-input="#filterTable-input" class="ui-responsive">
+         <thead>
+           <tr class="ui-bar-d">
+             <th>Product Name</th>
+             <th data-priority="1">Zone Name</th>
+             <th data-priority="2">Domain</th>
+             <th data-priority="3">Import date</th>
+             <th>Number of Instances</th>
+           </tr>
+         </thead>
+         <tbody>
+    {% for item in liste %}
+           <tr>
+             <th>{{ item.managed.product_Imported }}</th>
+             <td>{{ item.zone }}</td>
+             <td>{{ item.domain }}</td>
+             <td>{{ item.import_Date }}</td>
+             <td>{{ item.instances }}</td>
+           </tr>
+
+		{% endfor %}
+         </tbody>
+       </table>
+{% endblock %}

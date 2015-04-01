@@ -1,0 +1,21 @@
+{% extends "Risk_Indicators_Process.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Risk item never studied</h3>
+	<canvas id="canvasStudied" height="400" width="800"></canvas>
+	<script>
+		var studiedData = {
+			labels : ["GROUP","AIM","EUR","NA","SA","AC"],
+			datasets : [
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : [{{ listeGROUP }},{{ listeAIM }},{{ listeEUR }},{{ listeNA }},{{ listeSA }},{{ listeAC }}]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvasStudied").getContext("2d")).Bar(studiedData);
+	
+	</script>
+{% endblock %}

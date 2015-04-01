@@ -1,0 +1,20 @@
+{% extends "Risk_Admin_Master.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible">
+		<h3>Add a Risk Item...</h3>
+		<form action="#" method="post" data-ajax="false">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Add Risk Item" />
+		</form>
+	</div>
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Risk items list...</h3>
+		<ul data-role="listview" data-filter="true" data-autodividers="true">
+			{% for rirskItem in riskItems %}
+			<li>{{ rirskItem }}</li>
+			{% endfor %}
+		</ul>			
+	</div>
+</div>
+{% endblock %}

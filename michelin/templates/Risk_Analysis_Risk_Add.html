@@ -1,0 +1,7 @@
+{% extends "Risk_Analysis_Risk.html" %}
+{% block content %}
+<h3  class="ui-bar ui-bar-a ui-corner-all">Add a Risk Analysis</h3>
+<form action="#" method="post" data-ajax="false">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Save the new Analysis" />
+{% endblock %}

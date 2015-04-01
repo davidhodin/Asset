@@ -1,0 +1,23 @@
+{% extends "Risk_Analysis.html" %}
+{% block title %}
+[ Software Asset Management ] --- [ Risk Analisys ] --- [ Master Software ]
+{% endblock %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible">
+		<h3>Add a Master Software...</h3>
+		<form action="#" method="post" data-ajax="false">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Add Master Software" />
+		</form>
+	</div>						
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Master Software list...</h3>
+		<ul data-role="listview">
+			{% for masterApp in masterApps %}
+			<li><a href="/sam/risk/master/{{ masterApp.id }}/">{{ masterApp }}</a></li>
+			{% endfor %}
+		</ul>					
+	</div>
+</div>
+{% endblock %}

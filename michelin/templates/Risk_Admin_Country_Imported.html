@@ -1,0 +1,20 @@
+{% extends "Risk_Admin_Localisation.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible">
+		<h3>Link country imported to the "{{ name }}" country</h3>
+		<form action="#" method="post" data-ajax="false">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="link countries" />
+		</form>
+	</div>
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Countries not yet associated...</h3>
+		<ul data-role="listview">
+			{% for pay in pays %}
+			<li>{{ pay }}</li>
+			{% endfor %}
+		</ul>				
+	</div>			
+</div>
+{% endblock %}

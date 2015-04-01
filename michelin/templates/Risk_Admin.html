@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+[ Risk Management ] --- [ Admin data ]
+{% endblock %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Admin of data for Risk Management</h3>
+      <div class="ui-body ui-body-a ui-corner-all">
+		<ul data-role="listview">
+			<li>Localizations
+				<ul>
+				<li>Michelin zones</li>
+				<li>Link with imported countries</li>
+				</ul>
+			</li>
+			<li>Softwares Imported
+				<ul>
+				<li>New Softwares Imported</li>
+				<li>Softwares Analysed</li>
+				<li>Softwares not analysed</li>
+				</ul>
+			</li>
+			<li>Master Softwares
+				<ul>
+				<li>Create Master Software</li>
+				<li>Create Risk Items</li>
+				</ul>
+			</li>
+			<li>PC Softwares
+				<ul>
+				<li>Imports reports about Software installation on PC</li>
+				<li>Consolidate PC Software import</li>
+				</ul>
+			</li>
+
+		</ul>
+      </div>
+{% endblock %}
+{% block footer %}
+<a href="/sam/admin/zone/" data-role="button" data-icon="navigation" ajax='false'>Localizations</a>
+<a href="/sam/admin/appImported/" data-role="button" data-icon="action" ajax='false'>Softwares Imported</a>
+<a href="/sam/admin/masterSW/" data-role="button" data-icon="bullets" ajax='false'>Master Softwares</a>
+<a href="/sam/import/PcSW/" data-role="button" data-icon="gear">Import PC Soft data</a>
+{% endblock %}

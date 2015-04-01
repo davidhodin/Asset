@@ -1,0 +1,30 @@
+{% extends "Risk_Indicators_Risk.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Average Risk level</h3>
+	<canvas id="canvasAverage" height="400" width="800"></canvas>
+	<script>
+		var averageData = {
+			labels : ["GROUP","AIM","EUR","NA","SA","AC"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					pointColor : "rgba(220,220,220,1)",
+					pointStrokeColor : "#fff",
+					data : [3,3,3,3,3,3]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data : [{{Liste0}},{{Liste1}},{{Liste2}},{{Liste3}},{{Liste4}},{{Liste5}}]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvasAverage").getContext("2d")).Line(averageData);
+	
+	</script>
+{% endblock %}

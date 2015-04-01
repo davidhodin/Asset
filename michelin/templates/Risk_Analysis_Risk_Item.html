@@ -1,0 +1,63 @@
+{% extends "Risk_Analysis_Risk.html" %}
+{% block content %}
+<div data-role="collapsible-set">
+	<div data-role="collapsible" data-collapsed="false">
+		<h3>Details of the risk Item</h3>
+		<ul data-role="listview">
+			<li>Software         >>> {{ item.master_Software }}</li>
+			<li>Zone             >>> {{ item.zone }}</li>
+			<li>Comments 	       >>> {{ item.comments }}</li>
+			<li>Contract Manager >>> {{ item.contract_Manager }}</li>
+			<li>Risks Level      >>> {{ item.actual_Risk }}</li>
+		</ul>
+	</div>
+	<div data-role="collapsible">
+		<h3>List of Risks Analysis</h3>
+		<a href="/sam/risk/risk/add/{{ item.id }}/" data-role="button" data-icon="plus" ajax='false'>Add a risk analysis</a>
+		<table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+			<thead>
+			<tr class="ui-bar-d">
+				<th data-priority="1">Month - Year</th>
+				<th>Risk Level</th>
+				<th data-priority="2">Active ?</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for list in riskList %}
+			<tr>
+				<td>{{ list.Month_of_the_analyse }} - {{ list.Year_of_the_analyse }}</td>
+				<td>{{ list.Calculated_risk_level }}</td>
+				<td>{{ list.Analyse_active }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div data-role="collapsible">
+		<h3>Inventories</h3>
+		<table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+			<thead>
+			<tr class="ui-bar-d">
+				<th>Software</th>
+				<th>Number of installations</th>
+				<th data-priority="1">Import date</th>
+				<th data-priority="2">Domain</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for inventory in inventoriesList %}
+			<tr>
+				<td>{{ inventory.managed }}</td>
+				<td>{{ inventory.instances }}</td>
+				<td>{{ inventory.import_Date }}</td>
+				<td>{{ inventory.domain }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+{% endblock %}

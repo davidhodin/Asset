@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+[ Software Asset Management ] --- [ Indicators ]
+{% endblock %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Process and Risk Indicators</h3>
+      <div class="ui-body ui-body-a ui-corner-all">
+		<ul data-role="listview">
+			<li>Process Indicators
+				<ul>
+					<li>Softwares by Status defined</li>
+					<li>Softwares licensed with Master Software</li>
+					<li>Risk item never studied</li>
+				</ul>
+			</li>
+			<li>Risk Management
+				<ul>
+					<li>Risk level by zone</li>
+					<li>Average Risk level</li>
+				</ul>
+			</li>
+		</ul>
+      </div>
+{% endblock %}
+{% block footer %}
+	<a href="/sam/indicators/Process/Status/" data-role="button" data-icon="edit" ajax="false">Process</a>
+	<a href="/sam/indicators/Risk/Zone/" data-role="button" data-icon="edit" ajax="false">Risk</a>
+{% endblock %}

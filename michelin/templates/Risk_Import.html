@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+[ Risk Management ] --- [ Import data ]
+{% endblock %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Import data from VISO contractual reports</h3>
+      <div class="ui-body ui-body-a ui-corner-all">
+		<ul data-role="listview">
+			<li>PC Softwares
+				<ul>
+					<li>Imports reports about Software installation on PC</li>
+					<li>Consolidate PC Software import</li>
+				</ul>
+			</li>
+<!-- 			<li>Server Softwares
+				<ul>
+					<li>Imports reports about Software installation on Server</li>
+					<li>Consolidate Server Software import</li>
+				</ul>
+			</li> -->
+		</ul>
+      </div>
+{% endblock %}
+{% block footer %}
+<a href="/sam/import/PcSW/" data-role="button" data-icon="gear">PC Software</a>
+<!-- <a href="/sam/import/ServerSW/" data-role="button" data-icon="gear">Server Software</a> -->
+{% endblock %}

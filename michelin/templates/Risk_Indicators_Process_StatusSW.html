@@ -1,0 +1,22 @@
+{% extends "Risk_Indicators_Process.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Softwares by Status defined</h3>
+	<canvas id="canvasStatus" height="400" width="800"></canvas>
+	<script>
+		var statusData = {
+			labels : ["Not defined","Not analysed","Patch","Forbidden","Free","Licenced"],
+			datasets : [
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					pointColor : "rgba(151,187,205,1)",
+					pointStrokeColor : "#fff",
+					data : [{{ nbNotDefined }},{{ nbNotAnalysed }},{{ nbPatch }},{{ nbForbidden }},{{ nbFree }},{{ nbLicenced }}]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvasStatus").getContext("2d")).Line(statusData);
+	</script>
+{% endblock %}

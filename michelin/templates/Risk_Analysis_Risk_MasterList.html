@@ -1,0 +1,22 @@
+{% extends "Risk_Analysis_Risk.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">List of Risks Items</h3>
+<table data-role="table" id="table-custom-2" data-mode="columntoggle" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+         <thead>
+           <tr class="ui-bar-d">
+             <th>Master Software</th>
+             <th data-priority="1">Zone</th>
+             <th data-priority="2">Contract manager</th>
+           </tr>
+         </thead>
+         <tbody>
+      		{% for item in liste %}
+           <tr>
+             <th>{{ item.master_Software }}</th>
+             <td>{{ item.zone }}</td>
+             <td>{{ item.contract_Manager }}</td>
+           </tr>
+          {% endfor %}
+         </tbody>
+       </table>
+{% endblock %}

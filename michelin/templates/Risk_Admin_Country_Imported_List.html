@@ -1,0 +1,9 @@
+{% extends "Risk_Admin_Localisation.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Countries imported list...</h3>
+<ul data-role="listview">
+	{% for pay in pays %}
+	<li>{{ pay }}</li>
+	{% endfor %}
+</ul>				
+{% endblock %}

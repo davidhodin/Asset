@@ -1,0 +1,8 @@
+{% extends "Risk_Import_PC.html" %}
+{% block content %}
+<h3 class="ui-bar ui-bar-a ui-corner-all">Consolidate the data imported from contractual reports about Software on PC</h3>
+{{ resultat }}
+<form action="#" method="post" data-ajax="false">{% csrf_token %}
+	<input data-icon="check" data-iconpos="top" value="Consolidate" type="submit">					
+</form>
+{% endblock %}
